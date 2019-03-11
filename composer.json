@@ -1,0 +1,10 @@
+{
+    "name": "kevensuu/php-common-library",
+    "type": "library",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Common\\": "src/"
+        }
+    }
+}
