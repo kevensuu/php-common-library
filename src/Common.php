@@ -1,6 +1,5 @@
 <?php
-
-namespace Common;
+namespace KCommon;
 
 class Common
 {
