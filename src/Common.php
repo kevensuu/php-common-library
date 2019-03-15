@@ -1,5 +1,5 @@
 <?php
-namespace KCommon;
+namespace KLibrary;
 
 class Common
 {
