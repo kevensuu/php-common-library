@@ -11,24 +11,52 @@ class Weixin
 
         $data = [];
 
-        // 标题
-        preg_match('/var msg_title = "(.*?)";/', $htmlContent, $match);
-        if($match)
+        // 文章标题
+        preg_match('/var msg_title = "(.*?)";/', $htmlContent, $title);
+        if($title)
         {
-            $data['title'] = $match[1];
+            $data['title'] = $title[1];
         }
 
-        // 描述
-        preg_match('/var msg_desc = "(.*?)";/', $htmlContent, $match);
-        if($match)
+        // 文章描述
+        preg_match('/var msg_desc = "(.*?)";/', $htmlContent, $desc);
+        if($desc)
         {
-            $data['desc'] = $match[1];
+            $data['desc'] = $desc[1];
+        }
+
+        // 文章内容
+        preg_match('/<div class="rich_media_content " id="js_content">(.*?)<\/div>/isu', $htmlContent, $content);
+        if($content)
+        {
+            $content = trim($content[1]);
+            $content= preg_replace('/ style="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ class="(.*?)"/isu', '', $content);
+            $data['content'] = $content;
+        }
+
+        // 微信号昵称
+        preg_match('/<strong class="profile_nickname">(.*?)<\/strong>/', $htmlContent, $nickname);
+        if($nickname)
+        {
+            $data['nickname'] = $nickname[1];
         }
 
         // 微信号
-        
+        preg_match('/<label class="profile_meta_label">微信号<\/label>(.*?)<span class="profile_meta_value">(.*?)<\/span>/isu', $htmlContent, $weixinNum);
+        if($weixinNum)
+        {
+            $data['weixinNum'] = $weixinNum[2];
+        }
 
+        // 微信号介绍
+        preg_match('/<label class="profile_meta_label">功能介绍<\/label>(.*?)<span class="profile_meta_value">(.*?)<\/span>/isu', $htmlContent, $weixinNumDesc);
+        if($weixinNumDesc)
+        {
+            $data['weixinNumDesc'] = $weixinNumDesc[2];
+        }
         var_dump($data);
 
+        return $data;
     }
 }
