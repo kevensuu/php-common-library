@@ -3,6 +3,11 @@ namespace KLibrary;
 
 class Common
 {
+    public function __construct()
+    {
+        date_default_timezone_set('PRC');
+    }
+
     /**
      * 从URL中提取域名
      * @param $url
