@@ -142,6 +142,12 @@ class Common
         $s1=iconv('UTF-8','gb2312',$str);
         $s2=iconv('gb2312','UTF-8',$s1);
         $s=$s2==$str?$s1:$str;
+
+        if(!isset($s{1}))
+        {
+            return 0;
+        }
+
         $asc=ord($s{0})*256+ord($s{1})-65536;
         if($asc>=-20319&&$asc<=-20284) return 'A';
         if($asc>=-20283&&$asc<=-19776) return 'B';
