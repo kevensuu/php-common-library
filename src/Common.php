@@ -125,7 +125,7 @@ class Common
      */
     public static function getFirstCharter($str)
     {
-        if(empty($str))
+        if(empty($str) || mb_strlen($str)<2)
         {
             return '0';
         }
