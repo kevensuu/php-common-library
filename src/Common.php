@@ -125,10 +125,13 @@ class Common
      */
     public static function getFirstCharter($str)
     {
-        if(empty($str) || mb_strlen($str)<2)
+        if(empty($str))
         {
             return '0';
         }
+
+        // 过滤异常字符
+        $str = ltrim($str, '(');
 
         $str = self::cutOutString($str, 1, '');
 
