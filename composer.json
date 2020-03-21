@@ -7,5 +7,6 @@
         "psr-4": {
             "KLibrary\\": "src/"
         }
-    }
+    },
+    "license": "MIT"
 }
