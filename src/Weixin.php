@@ -26,7 +26,7 @@ class Weixin
         }
 
         // 文章内容
-        preg_match('/<div class="rich_media_content " id="js_content">(.*?)<\/div>/isu', $htmlContent, $content);
+        preg_match('/<div class="rich_media_content " id="js_content" style="visibility: hidden;">(.*?)<\/div>/isu', $htmlContent, $content);
         if($content)
         {
             $content = trim($content[1]);
@@ -55,7 +55,6 @@ class Weixin
         {
             $data['weixinNumDesc'] = $weixinNumDesc[2];
         }
-        var_dump($data);
 
         return $data;
     }
