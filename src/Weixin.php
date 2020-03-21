@@ -4,10 +4,10 @@ namespace KLibrary;
 
 class Weixin
 {
-    public static function getContent()
+    public static function getContent($url)
     {
         // 获取页面内容
-        $htmlContent = file_get_contents('https://mp.weixin.qq.com/s/c5Lzfn5Z1Y4WZ7TwXvO3uw');
+        $htmlContent = file_get_contents($url);
 
         $data = [];
 
