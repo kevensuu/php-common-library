@@ -11,7 +11,7 @@ class Image
             return '';
         }
 
-        $new_dir = '/'.date('Y').'/'.date('m').'/'.date('d').'/';
+        $new_dir = '/'.date('Ymd').'/';
         $dir = $dir.$new_dir;
         if(!file_exists($dir))
         {
