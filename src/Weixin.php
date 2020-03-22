@@ -32,6 +32,13 @@ class Weixin
             $content = trim($content[1]);
             $content= preg_replace('/ style="(.*?)"/isu', '', $content);
             $content= preg_replace('/ class="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ data-copyright="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ data-s="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ data-w="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ data-type="(.*?)"/isu', '', $content);
+            $content= preg_replace('/ data-ratio="(.*?)"/isu', '', $content);
+            $content= preg_replace('/<p><br  \/><\/p>/isu', '', $content);
+            $content= preg_replace('/data-src="/isu', 'src="', $content);
             $data['content'] = $content;
         }
 
