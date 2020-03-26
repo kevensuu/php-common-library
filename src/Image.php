@@ -15,7 +15,7 @@ class Image
         $dir = $dir.$new_dir;
         if(!file_exists($dir))
         {
-            mkdir($dir, '0777', 1);
+            mkdir($dir, 0777, 1);
         }
 
         $filename = hash_file('md5', $url).'.png';
