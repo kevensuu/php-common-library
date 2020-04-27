@@ -12,7 +12,7 @@ class Weixin
         $data = [];
 
         // 文章标题
-        preg_match('/var msg_title = "(.*?)";/', $htmlContent, $title);
+        preg_match('/var msg_title = \'(.*?)\'.html(false);/', $htmlContent, $title);
         if($title)
         {
             $data['title'] = $title[1];
