@@ -49,7 +49,7 @@ class Weixin
             $content = preg_replace('/ data-cropsely1="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropsely2="(.*?)"/', '', $content);
             $content = preg_replace('/ width="(.*?)"/', '', $content);
-            $content = preg_replace('/<p><span><br  \/></span><\/p>/', '', $content);
+            $content = preg_replace('/<p><span><br  \/><\/span><\/p>/', '', $content);
             $content = preg_replace('/<section><br><span><\/span><\/section>/', '', $content);
             $data['content'] = trim($content);
         }
