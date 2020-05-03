@@ -39,7 +39,19 @@ class Weixin
             $content= preg_replace('/ data-ratio="(.*?)"/isu', '', $content);
             $content= preg_replace('/<p><br  \/><\/p>/isu', '', $content);
             $content= preg_replace('/data-src="/isu', 'src="', $content);
-            $data['content'] = $content;
+            $content = preg_replace('/<section><br  \/><\/section>/', '', $content);
+            $content = preg_replace('/ data-backh="(.*?)"/', '', $content);
+            $content = preg_replace('/ powered-by="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-backw="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-autoskip="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-cropselx1="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-cropselx2="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-cropsely1="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-cropsely2="(.*?)"/', '', $content);
+            $content = preg_replace('/ width="(.*?)"/', '', $content);
+            $content = preg_replace('/<p><span><br  \/></span><\/p>/', '', $content);
+            $content = preg_replace('/<section><br><span><\/span><\/section>/', '', $content);
+            $data['content'] = trim($content);
         }
 
         // 微信号昵称
