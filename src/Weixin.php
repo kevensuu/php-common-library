@@ -29,6 +29,13 @@ class Weixin
         preg_match('/<div class="rich_media_content " id="js_content" style="visibility: hidden;">(.*?)<\/div>/isu', $htmlContent, $content);
         if($content)
         {
+            $style_css = <<<AAA
+<style>
+.content-detail section{margin-bottom: 10px;}
+</style>
+AAA;
+
+
             $content = trim($content[1]);
             $content= preg_replace('/ style="(.*?)"/isu', '', $content);
             $content= preg_replace('/ class="(.*?)"/isu', '', $content);
@@ -44,6 +51,8 @@ class Weixin
             $content = preg_replace('/ powered-by="(.*?)"/', '', $content);
             $content = preg_replace('/ data-backw="(.*?)"/', '', $content);
             $content = preg_replace('/ data-autoskip="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-tools="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-id="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropselx1="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropselx2="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropsely1="(.*?)"/', '', $content);
