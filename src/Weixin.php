@@ -52,6 +52,7 @@ AAA;
             $content = preg_replace('/ data-backw="(.*?)"/', '', $content);
             $content = preg_replace('/ data-autoskip="(.*?)"/', '', $content);
             $content = preg_replace('/ data-tools="(.*?)"/', '', $content);
+            $content = preg_replace('/ data-tool="(.*?)"/', '', $content);
             $content = preg_replace('/ data-id="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropselx1="(.*?)"/', '', $content);
             $content = preg_replace('/ data-cropselx2="(.*?)"/', '', $content);
