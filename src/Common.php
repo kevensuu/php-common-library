@@ -51,9 +51,9 @@ class Common
      * @param $time
      * @return false|float|int|string
      */
-    public static function formatTime($time)
+    public static function formatTime($time, $is_timestamp=0)
     {
-        $timestamp = strtotime($time);
+        $timestamp = !$is_timestamp ? strtotime($time) : $time;
         if(!$timestamp)
         {
             return '';
