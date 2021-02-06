@@ -30,20 +30,28 @@ class Common
      * @param $num
      * @return float|int
      */
-    public static function formatNum($num)
+    public static function formatNum($n, $precision=1)
     {
-        $num = (int)$num;
-        $num = abs($num);
+        $n = (int)$n;
+        $n = abs($n);
 
-        if($num < 1000)
+        if ($n < 1e+3)
         {
-            return $num;
+            $out = number_format($n);
         }
-
-        $num = ($num/1000);
-        $num = round($num, 1);
-
-        return $num.'k';
+        else if ($n < 1e+6)
+        {
+            $out = number_format($n / 1e+3, $precision) . 'k';
+        }
+        else if ($n < 1e+9)
+        {
+            $out = number_format($n / 1e+6, $precision) . 'm';
+        }
+        else if ($n < 1e+12)
+        {
+            $out = number_format($n / 1e+9, $precision) . 'b';
+        }
+        return $out;
     }
 
     /**
